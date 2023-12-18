@@ -2,9 +2,11 @@ import { Auth0Provider } from '@bcwdev/auth0provider'
 import { valuesService } from '../services/ValuesService.js'
 import BaseController from '../utils/BaseController'
 
+// NOTE BaseController builds the door
 export class ValuesController extends BaseController {
   constructor() {
-    super('api/values')
+    super('api/values') // NOTE super, calls the baseControllers constructor
+    //the 'api/values' assigns this endpoint (puts the name on the door)
     this.router
       .get('', this.getAll)
       // NOTE If there is an authenticated user it will attach here otherwise allows through
